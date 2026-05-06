@@ -1,0 +1,8 @@
+node_modules
+dist
+dist-ssr
+target
+.DS_Store
+*.local
+*.log
+apps/desktop/src-tauri/target

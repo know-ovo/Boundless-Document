@@ -1,0 +1,190 @@
+{
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\apps\\desktop\\vite.config.ts": {
+    "mtime": 1777880356.207011,
+    "hash": "59ac11dc4770b6ac0e1f370a54bbb082"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\apps\\desktop\\src\\App.tsx": {
+    "mtime": 1777950668.597185,
+    "hash": "660708dd86784cf939ca7ac697dd018c"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\apps\\desktop\\src\\defaultDocument.ts": {
+    "mtime": 1777884385.5616033,
+    "hash": "3439565d8d0c711f68584866c879157f"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\apps\\desktop\\src\\fileService.ts": {
+    "mtime": 1777880572.335637,
+    "hash": "e56cbb3559003d36ae5d6f13081fbc76"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\apps\\desktop\\src\\main.tsx": {
+    "mtime": 1777895721.2373238,
+    "hash": "9edd6c835b9924c6c77a5ab05e681bac"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\apps\\desktop\\src\\snippets.ts": {
+    "mtime": 1777880614.6672757,
+    "hash": "713151d139e67719319dc2a64a91bd5c"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\apps\\desktop\\src\\components\\LandingPage.tsx": {
+    "mtime": 1777950608.4991279,
+    "hash": "cf2f68326cd77792b1e25d2631c21d6a"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\apps\\desktop\\src\\components\\SettingsModal.tsx": {
+    "mtime": 1777949205.9857562,
+    "hash": "255d8e72f8de47dde9c545b2f6eb835b"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\apps\\desktop\\src\\components\\TopBar.tsx": {
+    "mtime": 1777949188.505018,
+    "hash": "ff4ee82a342821db5ac684095e88ce3d"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\apps\\desktop\\src\\contexts\\SettingsContext.tsx": {
+    "mtime": 1777947756.119526,
+    "hash": "65afbb32138a1dedd48536d3f6abd022"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\apps\\desktop\\src-tauri\\build.rs": {
+    "mtime": 1777880366.7636511,
+    "hash": "1be34a5c61c2c35365de3dab14298f0b"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\apps\\desktop\\src-tauri\\src\\lib.rs": {
+    "mtime": 1777880369.8245714,
+    "hash": "db23b94cd9e515d1b70e05dcef228742"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\apps\\desktop\\src-tauri\\src\\main.rs": {
+    "mtime": 1777880372.2775373,
+    "hash": "7f6428d7e02c0ab92eed511c5bfe2acf"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\blocks\\src\\BlockPreviewPanel.tsx": {
+    "mtime": 1777884407.3101995,
+    "hash": "24784e045a5c5bfea0b848761abcd71d"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\blocks\\src\\index.ts": {
+    "mtime": 1777880545.4088495,
+    "hash": "e134428d013448ec2242a5c0d9bfccc6"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\blocks\\src\\model-viewer.d.ts": {
+    "mtime": 1777880753.7891066,
+    "hash": "ed7dc707929f4937c62835b552aabf05"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\blocks\\src\\components\\AssetBlockView.tsx": {
+    "mtime": 1777880523.4195511,
+    "hash": "4d857d0822c80e80d20ccc52d366feef"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\blocks\\src\\components\\charts.tsx": {
+    "mtime": 1777880507.2216454,
+    "hash": "dde9a5a3f256b040527d367670bf9762"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\blocks\\src\\components\\CodeBlockView.tsx": {
+    "mtime": 1777880513.4582148,
+    "hash": "bd5171ae065f5ed9181e451cc91dc2c7"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\blocks\\src\\components\\LiveDataBlockView.tsx": {
+    "mtime": 1777880610.861112,
+    "hash": "54481c0c23f07b0630cdcf9ad1aa84b7"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\blocks\\src\\components\\Model3dBlockView.tsx": {
+    "mtime": 1777880517.8124144,
+    "hash": "d777e49c7c44323893048904443212f5"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\editor\\src\\BlockNoteEditor.tsx": {
+    "mtime": 1777951475.88132,
+    "hash": "b7557d9a3b9c48fcbdd338e0b0c27431"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\editor\\src\\index.ts": {
+    "mtime": 1777886493.1948044,
+    "hash": "e5b4e5a0aa23c67e91af745e991dbbcf"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\editor\\src\\schema.ts": {
+    "mtime": 1777886484.6923301,
+    "hash": "4da2f60e5e71978a76ad1f81f87e414e"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\editor\\src\\slash-menu.ts": {
+    "mtime": 1777886485.7229514,
+    "hash": "980eb2e7468d441c774e76b2edec3786"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\editor\\__tests__\\schema.test.ts": {
+    "mtime": 1777886919.9069417,
+    "hash": "320d7fecefada25f2fd974ea1644c2d2"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\runtime\\src\\codeRunner.ts": {
+    "mtime": 1777880431.3188872,
+    "hash": "220bfa58f8a17606273f3c6c8ef11c73"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\runtime\\src\\dataSource.ts": {
+    "mtime": 1777880424.6209512,
+    "hash": "aca819a84c3c32d08ca0351f7724fb6b"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\runtime\\src\\duckDBRunner.ts": {
+    "mtime": 1777886742.3065126,
+    "hash": "f301648b1ba47f5a71d37c23405b1580"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\runtime\\src\\index.ts": {
+    "mtime": 1777886755.000147,
+    "hash": "9e8d0dcdf0a6ed123283edd8e0dac0c8"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\runtime\\src\\jsSandbox.worker.ts": {
+    "mtime": 1777880437.1743684,
+    "hash": "f2133c46392b819474cd8fba98c43cb3"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\runtime\\src\\pyodideRunner.ts": {
+    "mtime": 1777886831.6694398,
+    "hash": "83ca5d9684972b6ad2bf2f76dc6fc65d"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\runtime\\src\\RuntimeContext.tsx": {
+    "mtime": 1777886743.3248084,
+    "hash": "6eda6eb0de1cf8e462a2bdc661342e19"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\runtime\\__tests__\\pyodideRunner.test.ts": {
+    "mtime": 1777886918.8782144,
+    "hash": "9a88d13184428888f9a41478ff999b1d"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\shared\\src\\extensionPoints.ts": {
+    "mtime": 1777880662.2237551,
+    "hash": "ca7fc0606e23143b1c60858ed3cadb59"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\shared\\src\\index.ts": {
+    "mtime": 1777880665.242563,
+    "hash": "78d5b0e508fe7d17aada6e68fed32dd8"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\shared\\src\\markdownBlocks.ts": {
+    "mtime": 1777886629.342743,
+    "hash": "c4a630de596b228ef73634dcd85dc24a"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\shared\\src\\types.ts": {
+    "mtime": 1777886657.065258,
+    "hash": "08138d336cd7c7b67c6815ca6eb2f32a"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\packages\\shared\\__tests__\\types.test.ts": {
+    "mtime": 1777886917.8441875,
+    "hash": "aea92b8c82bd95683f66de60b8106b9b"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\apps\\desktop\\index.html": {
+    "mtime": 1777880349.816725,
+    "hash": "f2ac031c655a665b93790e8853ec0fe6"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\docs\\landing.html": {
+    "mtime": 1777948034.7728367,
+    "hash": "c9aa2fbd2b1b953fb8193ec89a3b0e44"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\docs\\architecture\\\u6269\u5c55\u8fb9\u754c.md": {
+    "mtime": 1777880654.6745465,
+    "hash": "d7505d0ab393b45d8e9e2469f93f1f00"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\docs\\examples\\3D\u4ea7\u54c1\u8bf4\u660e\u4e66.md": {
+    "mtime": 1777880644.1039839,
+    "hash": "74a7341ce37bdfa2693effb98878bb71"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\docs\\examples\\\u53ef\u6267\u884c\u4ee3\u7801\u7b14\u8bb0.md": {
+    "mtime": 1777884394.4682982,
+    "hash": "cfa42d616118e31d6c98733321474766"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\docs\\examples\\\u5b9e\u65f6\u6570\u636e\u4eea\u8868\u76d8.md": {
+    "mtime": 1777884390.7652328,
+    "hash": "69c6b3c96c29e003b3383d009d33df92"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\docs\\superpowers\\plans\\2026-05-04-frontend-ui-redesign.md": {
+    "mtime": 1777889177.567403,
+    "hash": "e91ebe32c84752380927e720ef05689e"
+  },
+  "D:\\ZHIYI\\\u65e0\u754c\u6587\u6863\\\u65e0\u754c\u6587\u6863\\docs\\superpowers\\specs\\2026-05-04-frontend-ui-redesign.md": {
+    "mtime": 1777889135.0514328,
+    "hash": "b1be2471af7ed96c4ef8061e045ba05a"
+  }
+}

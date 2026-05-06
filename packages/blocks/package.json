@@ -1,0 +1,19 @@
+{
+  "name": "@boundless-docs/blocks",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "dependencies": {
+    "@boundless-docs/runtime": "file:../runtime",
+    "@boundless-docs/shared": "file:../shared",
+    "@google/model-viewer": "^4.2.0",
+    "echarts": "^6.0.0",
+    "react": "^19.2.1",
+    "react-markdown": "^10.1.0"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  }
+}

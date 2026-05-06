@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@boundless-docs/blocks": ["../../packages/blocks/src/index.ts"],
+      "@boundless-docs/editor": ["../../packages/editor/src/index.ts"],
+      "@boundless-docs/runtime": ["../../packages/runtime/src/index.ts"],
+      "@boundless-docs/shared": ["../../packages/shared/src/index.ts"]
+    }
+  },
+  "include": [
+    "src",
+    "../../packages/blocks/src",
+    "../../packages/editor/src",
+    "../../packages/runtime/src",
+    "../../packages/shared/src"
+  ]
+}
