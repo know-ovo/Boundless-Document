@@ -6,7 +6,7 @@
 
 ## 已实现能力
 
-- Markdown 编辑：支持源码编辑模式，并接入 Milkdown 作为 WYSIWYG Markdown 编辑器基础。
+- Markdown 编辑：支持 WYSIWYG 编辑模式，基于 BlockNote 编辑器。
 - 正文内嵌预览：增强代码块不会集中到单独面板，而是在文档原位置渲染成组件。
 - 实时数据块：通过 `live-data` 代码块展示 HTTP polling、SSE、WebSocket 数据源。
 - 可执行代码块：通过 `run-js` 代码块在 Web Worker 沙箱中执行 JavaScript。
@@ -152,7 +152,7 @@ title: 示例图片
 ## 后续方向
 
 - 接入 Pyodide/JupyterLite，支持 Python 代码块。
-- 接入 Yjs，实现多人实时协作和离线合并。
+- 接入 Yjs，实现多人实时协作和离线合并（可选开启）。
 - 建立文档索引，支持双向链接、块级引用和同步块。
 - 增加 AI 问答、自动摘要和相关文档推荐。
 - 抽离 Web/插件宿主，复用现有 `packages` 能力。

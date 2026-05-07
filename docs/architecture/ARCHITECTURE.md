@@ -6,7 +6,7 @@
 
 ```
 apps/desktop (Tauri + React 桌面应用)
-  → packages/editor    — BlockNoteEditor (Milkdown WYSIWYG)
+  → packages/editor    — BlockNoteEditor (WYSIWYG)
   → packages/blocks    — 增强块渲染组件
   → packages/runtime   — 数据订阅 & 代码沙箱
   → packages/shared    — 类型 & Markdown 解析
@@ -47,7 +47,6 @@ packages/shared (共享类型与工具)
 | `packages/blocks/src/components/charts.tsx` | ECharts 图表渲染 |
 | `packages/runtime/src/dataSource.ts` | 数据订阅（polling/SSE/WebSocket） |
 | `packages/runtime/src/codeRunner.ts` | JS 代码执行（Web Worker 沙箱） |
-| `packages/runtime/src/modelLoader.ts` | 3D 模型加载器 |
 | `packages/runtime/src/duckDBRunner.ts` | DuckDB-Wasm SQL 执行器 |
 | `packages/runtime/src/pyodideRunner.ts` | Pyodide Python 执行器 |
 | `packages/runtime/src/jsSandbox.worker.ts` | 隔离 JS Worker 沙箱 |

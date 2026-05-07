@@ -37,7 +37,7 @@ export function App({ initialDocument = defaultDocument }: AppProps) {
   const [showLanding, setShowLanding] = useState(true);
   const [filePath, setFilePath] = useState<string | undefined>();
   const [fileName, setFileName] = useState('未命名');
-  const [docContent] = useState(initialDocument);
+  const [docContent, setDocContent] = useState(initialDocument);
   const [settingsOpened, setSettingsOpened] = useState(false);
   const { colorScheme, accentColor, typography, layoutWidth, sidebarOpen } = useSettings();
 
@@ -77,11 +77,12 @@ export function App({ initialDocument = defaultDocument }: AppProps) {
     if (!doc) return;
     setFileName(doc.name);
     setFilePath(doc.path);
+    setDocContent(doc.content);
     setShowLanding(false);
   };
 
   const handleSave = async () => {
-    await saveMarkdownFile('<!-- boundless-doc -->\n\n# 新文档', filePath);
+    await saveMarkdownFile(liveMarkdown, filePath);
   };
 
   // ── LANDING ──────────────────────────────────────────────

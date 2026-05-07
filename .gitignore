@@ -5,4 +5,8 @@ target
 .DS_Store
 *.local
 *.log
+*.bak
+*.tsbuildinfo
 apps/desktop/src-tauri/target
+graphify-out/
+.claude/

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useMemo } from 'react';
 import { useMantineColorScheme } from '@mantine/core';
 import {
   useCreateBlockNote,
@@ -20,15 +20,23 @@ export interface BlockNoteEditorProps {
   initialMarkdown?: string;
   /** Fired when the document changes (lossy markdown export). */
   onMarkdownChange?: (markdown: string) => void;
+  /**
+   * Enable Yjs WebRTC real-time collaboration.
+   * OFF by default. When enabled, the document is shared via public y-webrtc signaling servers.
+   * Only enable if you understand the privacy implications.
+   */
+  collaboration?: boolean;
 }
 
 export function BlockNoteEditor(props: BlockNoteEditorProps = {}) {
-  const { initialMarkdown, onMarkdownChange } = props;
+  const { initialMarkdown, onMarkdownChange, collaboration } = props;
   const { colorScheme } = useMantineColorScheme();
   const collabRef = useRef<any>(null);
   const hydratedRef = useRef(false);
 
-  if (!isTest && !collabRef.current) {
+  const collab = useMemo(() => {
+    if (isTest || !collaboration) return undefined;
+    if (collabRef.current) return collabRef.current;
     const doc = new Y.Doc();
     const provider = new WebrtcProvider(
       `wujie-doc-pi-${Math.random().toString(36).slice(2, 8)}`,
@@ -42,11 +50,12 @@ export function BlockNoteEditor(props: BlockNoteEditorProps = {}) {
         color: `#${Math.floor(Math.random() * 0xffffff).toString(16).padStart(6, '0')}`,
       },
     };
-  }
+    return collabRef.current;
+  }, [collaboration]);
 
   const editor = useCreateBlockNote({
     schema: editorSchema as any,
-    collaboration: collabRef.current ?? undefined,
+    collaboration: collab,
   });
 
   useEffect(() => {
