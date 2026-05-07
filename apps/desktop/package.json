@@ -10,6 +10,7 @@
     "typecheck": "tsc -b"
   },
   "dependencies": {
+    "@mantine/core": "^8.3.18",
     "@boundless-docs/blocks": "file:../../packages/blocks",
     "@boundless-docs/editor": "file:../../packages/editor",
     "@boundless-docs/runtime": "file:../../packages/runtime",

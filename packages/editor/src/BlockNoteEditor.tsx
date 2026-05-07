@@ -20,6 +20,8 @@ export interface BlockNoteEditorProps {
   initialMarkdown?: string;
   /** Fired when the document changes (lossy markdown export). */
   onMarkdownChange?: (markdown: string) => void;
+  /** When initial Markdown fails to parse into blocks (falls back to empty document). */
+  onMarkdownParseError?: (error: unknown) => void;
   /**
    * Enable Yjs WebRTC real-time collaboration.
    * OFF by default. When enabled, the document is shared via public y-webrtc signaling servers.
@@ -29,7 +31,7 @@ export interface BlockNoteEditorProps {
 }
 
 export function BlockNoteEditor(props: BlockNoteEditorProps = {}) {
-  const { initialMarkdown, onMarkdownChange, collaboration } = props;
+  const { initialMarkdown, onMarkdownChange, onMarkdownParseError, collaboration } = props;
   const { colorScheme } = useMantineColorScheme();
   const collabRef = useRef<any>(null);
   const hydratedRef = useRef(false);
@@ -66,10 +68,11 @@ export function BlockNoteEditor(props: BlockNoteEditorProps = {}) {
       if (blocks.length > 0) {
         editor.replaceBlocks(editor.document, blocks);
       }
-    } catch {
-      /* keep default empty document */
+    } catch (error) {
+      console.warn('[BlockNoteEditor] tryParseMarkdownToBlocks failed', error);
+      onMarkdownParseError?.(error);
     }
-  }, [editor, initialMarkdown]);
+  }, [editor, initialMarkdown, onMarkdownParseError]);
 
   useEffect(() => {
     if (!editor || !onMarkdownChange) return;

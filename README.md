@@ -10,10 +10,15 @@
 - 正文内嵌预览：增强代码块不会集中到单独面板，而是在文档原位置渲染成组件。
 - 实时数据块：通过 `live-data` 代码块展示 HTTP polling、SSE、WebSocket 数据源。
 - 可执行代码块：通过 `run-js` 代码块在 Web Worker 沙箱中执行 JavaScript。
+- Python 代码块：通过 `run-python` 代码块在 Pyodide（Worker）中执行。
+- SQL 查询块：通过 `sql` 代码块在 DuckDB-Wasm 中执行。
+- 图表块：通过 `chart` 代码块结合 ECharts 展示。
 - 3D 内容块：通过 `model3d` 代码块展示 GLB/glTF 模型。
 - 多媒体资源块：通过 `asset` 代码块展示图片、视频、音频、PDF 等资源。
 - 本地文件：支持打开和保存 Markdown 文件。
 - 示例文档：`docs/examples` 中包含实时数据、代码执行和 3D 展示示例。
+
+变更说明见仓库根目录 [`CHANGELOG.md`](./CHANGELOG.md)。
 
 ## 项目结构
 
@@ -151,8 +156,7 @@ title: 示例图片
 
 ## 后续方向
 
-- 接入 Pyodide/JupyterLite，支持 Python 代码块。
-- 接入 Yjs，实现多人实时协作和离线合并（可选开启）。
+- 深化 Yjs / CRDT 多人协作与离线合并（编辑器侧已预留可选 WebRTC 协作路径）。
 - 建立文档索引，支持双向链接、块级引用和同步块。
 - 增加 AI 问答、自动摘要和相关文档推荐。
 - 抽离 Web/插件宿主，复用现有 `packages` 能力。

@@ -26,7 +26,16 @@ export async function openMarkdownFile(): Promise<OpenedDocument | null> {
   return openFromBrowser();
 }
 
-export async function saveMarkdownFile(content: string, currentPath?: string): Promise<string | undefined> {
+/** 保存结果：`cancelled` 表示用户在「另存为」对话框中取消（仅 Tauri 首次保存）。 */
+export interface SaveMarkdownResult {
+  path?: string;
+  cancelled?: boolean;
+}
+
+export async function saveMarkdownFile(
+  content: string,
+  currentPath?: string,
+): Promise<SaveMarkdownResult> {
   if (isTauri()) {
     const path =
       currentPath ??
@@ -36,14 +45,22 @@ export async function saveMarkdownFile(content: string, currentPath?: string): P
       }));
 
     if (!path) {
-      return currentPath;
+      return { path: currentPath, cancelled: true };
     }
     await writeTextFile(path, content);
-    return path;
+    return { path };
   }
 
   downloadInBrowser(content);
-  return currentPath;
+  return { path: currentPath };
+}
+
+/** 桌面版从已知路径重新读取（侧栏「最近」）；网页版无持久路径，不可用。 */
+export async function readMarkdownFromPath(filePath: string): Promise<string> {
+  if (!isTauri()) {
+    throw new Error('网页预览版无法从路径打开文件，请使用「打开」选择文件。');
+  }
+  return readTextFile(filePath);
 }
 
 function isTauri(): boolean {
