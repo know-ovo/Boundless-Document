@@ -18,16 +18,77 @@
 ## 项目结构
 
 ```text
-apps/
-  desktop/              Tauri + React 桌面应用
-packages/
-  editor/               Markdown 编辑器封装
-  blocks/               增强块渲染组件
-  runtime/              数据订阅、代码沙箱等运行时能力
-  shared/               文档类型、Markdown 块解析、扩展接口
-docs/
-  examples/             示例文档
-  architecture/         架构和扩展边界说明
+Boundless-Document/
+├── apps/desktop/                  ← Tauri 桌面应用入口
+│   ├── src/                       ← React 应用代码
+│   │   ├── App.tsx                ← 主应用组件（编辑器 + 侧栏 + 面板 + 状态栏）
+│   │   ├── main.tsx               ← React 入口
+│   │   ├── styles.css             ← 全局设计系统（CSS 变量级联）
+│   │   ├── defaultDocument.ts     ← 默认示例文档
+│   │   ├── documentStats.ts       ← 字数/行数统计
+│   │   ├── fileService.ts         ← 文件 I/O 抽象（Tauri + 浏览器回退）
+│   │   ├── snippets.ts            ← 增强块模板（从 editor 包重导出）
+│   │   ├── components/
+│   │   │   ├── LandingPage.tsx    ← 营销落地页
+│   │   │   ├── TopBar.tsx         ← 编辑器工具栏
+│   │   │   ├── SettingsModal.tsx  ← 设置抽屉
+│   │   │   ├── RuntimeStatusCard.tsx       ← 运行时状态指示
+│   │   │   └── UnsavedChangesModal.tsx     ← 未保存确认对话框
+│   │   └── contexts/
+│   │       └── SettingsContext.tsx ← 全局设置 Context
+│   └── src-tauri/                 ← Rust/Tauri 后端
+│       ├── Cargo.toml
+│       ├── tauri.conf.json
+│       ├── capabilities/default.json
+│       └── src/{main,lib}.rs
+│
+├── packages/
+│   ├── shared/                    ← 共享类型 + Markdown 解析器
+│   │   └── src/
+│   │       ├── types.ts           ← 7 种增强块类型定义
+│   │       ├── markdownBlocks.ts  ← Markdown → 增强块 解析引擎
+│   │       └── extensionPoints.ts ← 未来扩展接口（协作/AI）
+│   │
+│   ├── editor/                    ← Markdown 编辑器封装
+│   │   └── src/
+│   │       ├── BlockNoteEditor.tsx ← BlockNote React 组件（含 Yjs 协作）
+│   │       ├── schema.ts          ← BlockNote Schema 定义
+│   │       ├── slash-menu.ts      ← 7 个自定义斜杠菜单项
+│   │       └── snippets.ts        ← 增强块 Markdown 片段模板
+│   │
+│   ├── runtime/                   ← 运行时引擎（沙箱执行）
+│   │   └── src/
+│   │       ├── RuntimeContext.tsx  ← React Context（Pyodide + DuckDB 状态）
+│   │       ├── codeRunner.ts      ← JS 沙箱入口
+│   │       ├── pyodideRunner.ts   ← Python/Pyodide 入口
+│   │       ├── duckDBRunner.ts    ← SQL/DuckDB-Wasm 入口
+│   │       ├── dataSource.ts      ← 数据订阅引擎（polling/SSE/WebSocket）
+│   │       ├── jsSandbox.worker.ts ← JS Worker 沙箱（含自定义序列化）
+│   │       └── sandbox/
+│   │           ├── sandboxRunner.ts ← Worker 池 + 任务队列
+│   │           ├── python.worker.ts ← Pyodide Worker
+│   │           ├── sql.worker.ts    ← DuckDB-Wasm Worker
+│   │           └── types.ts         ← 沙箱请求/响应类型
+│   │
+│   └── blocks/                    ← 增强块渲染 UI 组件
+│       └── src/
+│           ├── BlockPreviewPanel.tsx ← 预览面板 + 内嵌文档视图
+│           ├── blocks.css           ← 块组件样式
+│           ├── model-viewer.d.ts    ← <model-viewer> 类型声明
+│           └── components/
+│               ├── LiveDataBlockView.tsx  ← 实时数据块
+│               ├── CodeBlockView.tsx      ← JS 执行块
+│               ├── PythonBlockView.tsx    ← Python 执行块
+│               ├── SQLBlockView.tsx       ← SQL 查询块
+│               ├── ChartBlockView.tsx     ← ECharts 图表块
+│               ├── Model3dBlockView.tsx   ← 3D 模型块
+│               ├── AssetBlockView.tsx     ← 多媒体资源块
+│               └── charts.tsx             ← ECharts 辅助组件
+│
+└── docs/                           ← 文档与示例
+    ├── architecture/ARCHITECTURE.md
+    └── examples/（3 个示例 .md）
+
 ```
 
 ## 环境要求
@@ -109,27 +170,27 @@ npm run typecheck
 
 实时数据块：
 
-````markdown
+```markdown
 ```live-data
 source: https://api.github.com/repos/google/model-viewer
 mode: polling
 interval: 15000
 view: json
 ```
-````
+```
 
 可执行 JS 块：
 
-````markdown
+```markdown
 ```run-js
 console.log("从 Worker 沙箱执行")
 return { message: "Hello Boundless Docs" }
 ```
-````
+```
 
 3D 模型块：
 
-````markdown
+```markdown
 ```model3d
 src: https://modelviewer.dev/shared-assets/models/Astronaut.glb
 poster: https://modelviewer.dev/shared-assets/models/Astronaut.webp
@@ -137,17 +198,17 @@ autoRotate: true
 cameraControls: true
 height: 360
 ```
-````
+```
 
 多媒体资源块：
 
-````markdown
+```markdown
 ```asset
 src: ./assets/demo.png
 type: image
 title: 示例图片
 ```
-````
+```
 
 ## 后续方向
 
@@ -156,3 +217,4 @@ title: 示例图片
 - 建立文档索引，支持双向链接、块级引用和同步块。
 - 增加 AI 问答、自动摘要和相关文档推荐。
 - 抽离 Web/插件宿主，复用现有 `packages` 能力。
+

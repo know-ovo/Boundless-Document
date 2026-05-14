@@ -8,7 +8,7 @@
 :root {
   --canvas:   #FBFBFA;
   --surface:  #FFFFFF;
-  --ink:      #1A1A19;
+  --ink:      #000000;
   --muted:    #787774;
   --hairline: #EAEAEA;
   --accent:   #2F6FEB;
@@ -217,6 +217,7 @@ p { text-wrap: pretty; }
    LANDING PAGE
    ═══════════════════════════════════════════════════════════════════ */
 .landing-root {
+  color: var(--ink);
   min-height: 100vh; background: var(--canvas); font-family: var(--sans);
 }
 .landing-root button { font: inherit; cursor: pointer; }
@@ -242,9 +243,10 @@ p { text-wrap: pretty; }
   font-size: clamp(44px, 6.5vw, 80px);
   line-height: 1.02; letter-spacing: -0.025em;
   margin: 22px 0 0; max-width: 16ch; font-weight: 400;
+  color: var(--ink);
 }
 .lp-lede {
-  font-size: 18px; color: var(--muted);
+  font-size: 18px; color: var(--ink);
   max-width: 52ch; margin: 22px 0 32px; line-height: 1.55;
 }
 .lp-hero-cta { display: flex; gap: 12px; align-items: center; margin-top: 28px; }
@@ -327,6 +329,7 @@ p { text-wrap: pretty; }
 .lp-h2 {
   font-family: var(--display); font-size: clamp(30px, 3.8vw, 44px);
   line-height: 1.08; letter-spacing: -0.022em; margin: 0; font-weight: 400;
+  color: var(--ink);
 }
 
 /* feature grid — hairline dividers between cells, no rounded borders */
@@ -348,7 +351,7 @@ p { text-wrap: pretty; }
 }
 .lp-feature-icon svg { width: 16px; height: 16px; }
 .lp-feature-grid h3 { margin: 0 0 6px; font-size: 18px; font-weight: 600; letter-spacing: -0.005em; }
-.lp-feature-grid p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.lp-feature-grid p { margin: 0; color: var(--ink); font-size: 14px; line-height: 1.6; }
 .lp-feature-grid code {
   font-family: var(--mono); font-size: 12px;
   background: var(--surface); border: 1px solid var(--hairline);
@@ -366,7 +369,7 @@ p { text-wrap: pretty; }
   border-radius: var(--r); padding: 22px 24px;
 }
 .lp-how-card h3 { margin: 0 0 5px; font-size: 16px; font-weight: 600; }
-.lp-how-card p { margin: 0; color: var(--muted); font-size: 13.5px; }
+.lp-how-card p { margin: 0; color: var(--ink); font-size: 13.5px; }
 .lp-code-block {
   background: var(--surface); color: var(--ink);
   border: 1px solid var(--hairline); border-radius: var(--r-lg);
@@ -394,7 +397,7 @@ p { text-wrap: pretty; }
   .lp-eco-card + .lp-eco-card { border-left: none; border-top: 1px solid var(--hairline); }
 }
 .lp-eco-card h3 { margin: 0 0 5px; font-size: 16px; font-weight: 600; }
-.lp-eco-card p { margin: 0; color: var(--muted); font-size: 13.5px; }
+.lp-eco-card p { margin: 0; color: var(--ink); font-size: 13.5px; }
 
 /* CTA section */
 .lp-cta-section { text-align: center; padding: 88px 0; }
@@ -403,7 +406,7 @@ p { text-wrap: pretty; }
   margin-top: 32px;
 }
 .lp-cta-lede {
-  font-size: 18px; color: var(--muted); max-width: 52ch;
+  font-size: 18px; color: var(--ink); max-width: 52ch;
   margin: 16px auto 0; line-height: 1.55;
 }
 
@@ -480,7 +483,9 @@ p { text-wrap: pretty; }
   border-radius: var(--r-lg);
   padding: 52px 60px;
   box-shadow: var(--shadow-xs);
+  color: var(--ink);
   /* prevent the card itself from stretching with content */
+  min-height: 0;
   min-height: 0;
   flex-shrink: 0;
   /* clip overflow, but still allow inner editor to scroll */
@@ -726,13 +731,17 @@ p { text-wrap: pretty; }
 /* Remove any nested white backgrounds inside the editor */
 .editor-surface .bn-container,
 .editor-surface .bn-editor,
-.editor-surface .ProseMirror {
+.editor-surface .ProseMirror,
+.editor-surface .bn-block-content,
+.editor-surface .bn-inline-content {
   background: transparent !important;
+  color: var(--ink) !important;
 }
 
 /* Ensure the editor content area doesn't add its own background */
 .editor-surface .bn-block-outer {
   background: transparent !important;
+  color: var(--ink);
 }
 
 /* BlockNote wrapper: fill parent, scrollable content area */

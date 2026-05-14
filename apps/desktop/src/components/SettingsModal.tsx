@@ -22,7 +22,7 @@ const IconLayout = () => (
 );
 
 export function SettingsModal({ opened, onClose }: SettingsModalProps) {
-  const { typography, setTypography, layoutWidth, setLayoutWidth, accentColor, setAccentColor } = useSettings();
+  const { typography, setTypography, layoutWidth, setLayoutWidth, accentColor, setAccentColor, language, setLanguage, t } = useSettings();
 
   return (
     <>
@@ -40,8 +40,8 @@ export function SettingsModal({ opened, onClose }: SettingsModalProps) {
         aria-hidden={!opened}
       >
         <div className="od-drawer-header">
-          <h2>文档设置</h2>
-          <button className="tb-btn icon-only" onClick={onClose} title="关闭">
+          <h2>{t('settings.title')}</h2>
+          <button className="tb-btn icon-only" onClick={onClose} title={t('settings.close')}>
             <IconClose />
           </button>
         </div>
@@ -50,7 +50,7 @@ export function SettingsModal({ opened, onClose }: SettingsModalProps) {
           <div className="field-group">
             <label>
               <IconPalette />
-              主题色
+              {t('settings.themeColor')}
             </label>
             <div className="od-swatches">
               {COLORS.map((c) => (
@@ -68,14 +68,14 @@ export function SettingsModal({ opened, onClose }: SettingsModalProps) {
           <div className="field-group">
             <label>
               <IconType />
-              字体风格
+              {t('settings.fontStyle')}
             </label>
             <div className="od-segmented">
               <button className={typography === 'sans' ? 'active' : ''} onClick={() => setTypography('sans')}>
-                无衬线
+                {t('settings.sansSerif')}
               </button>
               <button className={typography === 'serif' ? 'active' : ''} onClick={() => setTypography('serif')}>
-                衬线
+                {t('settings.serif')}
               </button>
             </div>
           </div>
@@ -83,14 +83,29 @@ export function SettingsModal({ opened, onClose }: SettingsModalProps) {
           <div className="field-group">
             <label>
               <IconLayout />
-              页面宽度
+              {t('settings.pageWidth')}
             </label>
             <div className="od-segmented">
               <button className={layoutWidth === 'standard' ? 'active' : ''} onClick={() => setLayoutWidth('standard')}>
-                标准居中
+                {t('settings.standardWidth')}
               </button>
               <button className={layoutWidth === 'full' ? 'active' : ''} onClick={() => setLayoutWidth('full')}>
-                宽屏模式
+                {t('settings.fullWidth')}
+              </button>
+            </div>
+          </div>
+
+          <div className="field-group">
+            <label>
+              <IconLayout />
+              {t('settings.uiLanguage')}
+            </label>
+            <div className="od-segmented">
+              <button className={language === 'zh-CN' ? 'active' : ''} onClick={() => setLanguage('zh-CN')}>
+                {t('settings.langZhCN')}
+              </button>
+              <button className={language === 'en' ? 'active' : ''} onClick={() => setLanguage('en')}>
+                {t('settings.langEn')}
               </button>
             </div>
           </div>

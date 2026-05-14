@@ -3,6 +3,7 @@ import { useSettings } from '../contexts/SettingsContext';
 interface TopBarProps {
   fileName: string;
   onOpen: () => void;
+  onSaveAs: () => void;
   onSave: () => void;
   onSettingsClick: () => void;
   onBackToLanding: () => void;
@@ -28,21 +29,21 @@ const IconCheck = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
 );
 
-export function TopBar({ fileName, onOpen, onSave, onSettingsClick, onBackToLanding }: TopBarProps) {
-  const { colorScheme, setColorScheme } = useSettings();
+export function TopBar({ fileName, onOpen, onSaveAs, onSave, onSettingsClick, onBackToLanding }: TopBarProps) {
+  const { colorScheme, setColorScheme, t } = useSettings();
 
   return (
     <div className="top-bar">
       <div className="tb-left">
-        <button className="tb-btn icon-only" title="后退" onClick={onBackToLanding}>
+        <button className="tb-btn icon-only" title={t('topbar.back')} onClick={onBackToLanding}>
           <IconArrowLeft />
         </button>
-        <button className="tb-btn icon-only" title="前进">
+        <button className="tb-btn icon-only" title={t('topbar.forward')}>
           <IconArrowRight />
         </button>
         <span className="tb-status">
           <span className="status-dot" />
-          已保存
+          {t('topbar.saved')}
         </span>
       </div>
 
@@ -51,22 +52,26 @@ export function TopBar({ fileName, onOpen, onSave, onSettingsClick, onBackToLand
       {/* actions */}
       <div className="btn-group">
         <button className="tb-btn" onClick={onOpen}>
-          打开
+          {t('topbar.open')}
+        </button>
+
+        <button className="tb-btn" onClick={onSaveAs}>
+          {t('topbar.save')}
         </button>
 
         <button className="tb-btn primary" onClick={onSave}>
-          分享
+          {t('topbar.share')}
         </button>
 
         <button
           className="tb-btn icon-only"
           onClick={() => setColorScheme(colorScheme === 'light' ? 'dark' : 'light')}
-          title="切换主题"
+          title={t('topbar.toggleTheme')}
         >
           {colorScheme === 'light' ? <IconMoon /> : <IconSun />}
         </button>
 
-        <button className="tb-btn icon-only" onClick={onSettingsClick} title="设置">
+        <button className="tb-btn icon-only" onClick={onSettingsClick} title={t('topbar.settings')}>
           <IconSettings />
         </button>
 

@@ -71,11 +71,16 @@ function openFromBrowser(): Promise<OpenedDocument | null> {
 }
 
 function downloadInBrowser(content: string) {
+  downloadMarkdownFile(content, 'boundless-doc.md');
+}
+
+export function downloadMarkdownFile(content: string, fileName: string) {
+  const name = fileName.endsWith('.md') ? fileName : `${fileName}.md`;
   const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
-  link.download = 'boundless-doc.md';
+  link.download = name;
   link.click();
   URL.revokeObjectURL(url);
 }

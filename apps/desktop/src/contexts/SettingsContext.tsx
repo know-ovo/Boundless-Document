@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, ReactNode, useMemo } from 'react';
+import { createContext, useContext, useState, ReactNode, useMemo, useCallback } from 'react';
+import { t, type Language } from '../i18n';
 
 export type AccentColor = 'cobalt' | 'indigo' | 'teal' | 'orange' | 'rose';
 export type Typography = 'sans' | 'serif';
@@ -10,6 +11,7 @@ interface SettingsState {
   typography: Typography;
   layoutWidth: LayoutWidth;
   sidebarOpen: boolean;
+  language: Language;
 }
 
 interface SettingsContextType extends SettingsState {
@@ -18,6 +20,8 @@ interface SettingsContextType extends SettingsState {
   setTypography: (val: Typography) => void;
   setLayoutWidth: (val: LayoutWidth) => void;
   setSidebarOpen: (val: boolean) => void;
+  setLanguage: (val: Language) => void;
+  t: (path: string) => string;
 }
 
 const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
@@ -44,14 +48,19 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
   const [typography, setTypography] = useState<Typography>('sans');
   const [layoutWidth, setLayoutWidth] = useState<LayoutWidth>('standard');
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [language, setLanguage] = useState<Language>('zh-CN');
+
+  const translate = useCallback((path: string) => t(language, path), [language]);
 
   const contextValue = useMemo(() => ({
     colorScheme, setColorScheme,
     accentColor, setAccentColor,
     typography, setTypography,
     layoutWidth, setLayoutWidth,
-    sidebarOpen, setSidebarOpen
-  }), [colorScheme, accentColor, typography, layoutWidth, sidebarOpen]);
+    sidebarOpen, setSidebarOpen,
+    language, setLanguage,
+    t: translate,
+  }), [colorScheme, accentColor, typography, layoutWidth, sidebarOpen, language, translate]);
 
   return (
     <SettingsContext.Provider value={contextValue}>

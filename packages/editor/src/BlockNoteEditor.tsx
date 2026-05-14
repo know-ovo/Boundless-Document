@@ -15,15 +15,51 @@ import { getCustomSlashMenuItems } from './slash-menu';
 
 const isTest = typeof process !== 'undefined' && process.env.NODE_ENV === 'test';
 
+// Translate default BlockNote slash-menu items
+const titleZh: Record<string, string> = {
+  'Heading 1': '一级标题',
+  'Heading 2': '二级标题',
+  'Heading 3': '三级标题',
+  'Bullet List': '无序列表',
+  'Numbered List': '有序列表',
+  'Check List': '任务列表',
+  'Block Quote': '引用块',
+  'Code Block': '代码块',
+  'Table': '表格',
+  'Image': '图片',
+  'Divider': '分割线',
+  'Video': '视频',
+  'Audio': '音频',
+  'File': '文件',
+  'Emoji': '表情',
+};
+const groupZh: Record<string, string> = {
+  'Headings': '标题',
+  'Basic Blocks': '基础块',
+  'Media': '媒体',
+};
+
+function translateDefaultItems(items: any[], lang?: 'zh-CN' | 'en'): any[] {
+  if (lang === 'en') return items;
+  return items.map((item) => ({
+    ...item,
+    title: titleZh[item.title] ?? item.title,
+    subtext: item.subtext ? (titleZh[item.subtext] ?? item.subtext) : item.subtext,
+    group: groupZh[item.group] ?? item.group,
+  }));
+}
+
 export interface BlockNoteEditorProps {
   /** Markdown body (no YAML frontmatter) — parsed once into BlockNote blocks on mount. */
   initialMarkdown?: string;
   /** Fired when the document changes (lossy markdown export). */
   onMarkdownChange?: (markdown: string) => void;
+  /** UI language for slash menu items ('zh-CN' | 'en'). */
+  language?: 'zh-CN' | 'en';
 }
 
 export function BlockNoteEditor(props: BlockNoteEditorProps = {}) {
-  const { initialMarkdown, onMarkdownChange } = props;
+  const { initialMarkdown, onMarkdownChange, language } = props;
   const { colorScheme } = useMantineColorScheme();
   const collabRef = useRef<any>(null);
   const hydratedRef = useRef(false);
@@ -56,6 +92,17 @@ export function BlockNoteEditor(props: BlockNoteEditorProps = {}) {
       const blocks = editor.tryParseMarkdownToBlocks(initialMarkdown);
       if (blocks.length > 0) {
         editor.replaceBlocks(editor.document, blocks);
+        // Clear undo history so Ctrl+Z doesn't revert initial content
+        queueMicrotask(() => {
+          try {
+            const tt = (editor as any)?._tiptapEditor;
+            if (tt) {
+              tt.commands?.clearHistory?.();
+              const yUndoManager = tt.extensionStorage?.collaboration?.undoManager;
+              if (yUndoManager) yUndoManager.clear();
+            }
+          } catch { /* best effort */ }
+        });
       }
     } catch {
       /* keep default empty document */
@@ -79,8 +126,11 @@ export function BlockNoteEditor(props: BlockNoteEditorProps = {}) {
       <SuggestionMenuController
         triggerCharacter="/"
         getItems={async (query: string) => {
-          const defaultItems = getDefaultReactSlashMenuItems(editor as any);
-          const customItems = getCustomSlashMenuItems(editor);
+          const defaultItems = translateDefaultItems(
+            getDefaultReactSlashMenuItems(editor as any),
+            language,
+          );
+          const customItems = getCustomSlashMenuItems(editor, language);
           return filterSuggestionItems([...defaultItems, ...customItems], query) as any;
         }}
         {...{ suggestionMenuComponent: undefined as any, onItemClick: undefined as any }}
